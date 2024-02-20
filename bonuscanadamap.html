@@ -7,6 +7,7 @@
         <!-- List of ArcGIS Maps SDK for JavaScript tutorials explored for this deliverable: -->
             <!-- Load a basic WebMap: https://developers.arcgis.com/javascript/latest/sample-code/webmap-basic/ -->
             <!-- Using Esri Icon Fonts with map graphics: https://developers.arcgis.com/javascript/latest/sample-code/styling-icon-fonts/ -->
+            <!-- Add a point, line, and polygon: https://developers.arcgis.com/javascript/latest/tutorials/add-a-point-line-and-polygon/ -->
             
 
         <meta charset="utf-8" />
@@ -59,7 +60,8 @@
                 const view = new MapView({
                     map: map,
                     container: "viewDiv",
-                    zoom: 10
+                    zoom: 10,
+                    center: [68.22550900830204, -101.34576652123206]
                 });
 
 
@@ -76,7 +78,7 @@
 
 
                 /////////// CAPITAL CITY OF CANADA ///////////
-                // 1) OTTAWA, ONTARIO
+                // OTTAWA, ONTARIO
                 const ottawaPoint = { // Create a point
                     type: "point",
                     longitude: -75.695000,
@@ -106,6 +108,34 @@
                     popupTemplate: ottawaPopUp
                 });
                 graphicsLayer.add(ottawaGraphic); // Add the graphic for this point to the graphic layer
+
+
+                /////////// CAPITAL CITIES OF PROVINCES AND TERRITORIES OF CANADA ///////////
+                // 1) TORONTO, ONTARIO
+                const torontoPoint = { // Create a point
+                    type: "point",
+                    longitude: -79.347015,
+                    latitude: 43.651070
+                }; 
+                const torontoMarkerSymbol = { 
+                    type: "simple-marker",
+                    color: "#000"
+                };
+                const torontoPopUp = { // Create a pop-up for the point graphic when it is clicked
+                    title: "{Name}",
+                    content: "{Description}"
+                }
+                const torontoAttributes = { // Info for inside pop-up
+                    Name: "Toronto, Ontario",
+                    Description: "Toronto is Ontario's Capital City."
+                }
+                const torontoGraphic = new Graphic({ // Create a point graphic
+                    geometry: torontoPoint,
+                    symbol: torontoMarkerSymbol,
+                    attributes: torontoAttributes,
+                    popupTemplate: torontoPopUp
+                });
+                graphicsLayer.add(torontoGraphic); // Add the graphic for this point to the graphic layer
 
             });
         </script>
