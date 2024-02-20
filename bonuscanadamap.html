@@ -32,11 +32,12 @@
         <script>
             require([
                 "esri/config", 
-                "esri/WebMap", 
+                "esri/Map", 
                 "esri/views/MapView",
                 "esri/Graphic",
                 "esri/layers/GraphicsLayer",
-                ], function(esriConfig, WebMap, MapView, Graphic, GraphicsLayer) {
+                "esri/layers/FeatureLayer"
+                ], function(esriConfig, Map, MapView, Graphic, GraphicsLayer, FeatureLayer) {
 
 
                 // Set the hostname to the on-premise portal
@@ -48,18 +49,25 @@
                 esriConfig.apiKey = "AAPK7ea8e38f6b4b4f969ab170c41c01634akao_m4e5gL3AyABug_bvD9dN7kbXw7BSISXg4Y558XYUVj59ej6DtByYM0Cms4Tz";
 
             
-                // Loading the Canada web map layer from AGOL
-                const map = new WebMap({
-                    portalItem: {
-                        id: "47a2a615bfb54c7b8b1ac7de6699c3ed"
-                    } 
+                // Creating a new map with a terrain basemap
+                const map = new Map({
+                    basemap: "terrain"
                 });
+
 
                 // Create a MapView
                 const view = new MapView({
                     map: map,
-                    container: "viewDiv"
+                    container: "viewDiv",
+                    zoom: 10
                 });
+
+
+                // Adding Canada layer from server
+                const Canada = new FeatureLayer({
+                    url: "https://luna.flemingcollege.ca/arcgis/rest/services/geom99am/hpleskoCanada/MapServer/0"
+                });
+                map.add(Canada, 0); // Add feature layer to map
 
 
                 // Add the graphics layer to store graphics
