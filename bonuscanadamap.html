@@ -41,7 +41,7 @@
 
                 // Set the hostname to the on-premise portal
                 // source: https://developers.arcgis.com/javascript/latest/api-reference/esri-config.html#portalUrl
-                esriConfig.portalUrl = "https://www.arcgis.com"
+                esriConfig.portalUrl = "https://luna.flemingcollege.ca/arcgis/rest/services/geom99am/hpleskoCanada/MapServer/0"
 
 
                 // API Key provided by Shawn Morgan
@@ -74,7 +74,8 @@
                     longitude: -75.695000,
                     latitude: 45.424721
                 }; 
-                const ottawaTextSymbol = { // Customize the Esri icon
+                const ottawaTextSymbol = { // Customize the Esri icon: https://developers.arcgis.com/javascript/latest/esri-icon-font/
+                    type: "text",
                     color: "#000",
                     text: "\ue67f", // esri-icon-favorites
                     font: {
