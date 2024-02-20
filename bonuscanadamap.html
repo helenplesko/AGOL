@@ -74,14 +74,14 @@
                     longitude: -75.695000,
                     latitude: 45.424721
                 }; 
-                const ottawaTextSymbol = new TextSymbol ({ // Customize the Esri icon
+                const ottawaTextSymbol = { // Customize the Esri icon
                     color: "#000",
                     text: "\ue67f", // esri-icon-favorites
                     font: {
                         size: 16,
                         family: "CalciteWebCoreIcons"
                     }
-                });
+                };
                 const ottawaPopUp = { // Create a pop-up for the point graphic when it is clicked
                     title: "{Name}",
                     content: "{Description}"
