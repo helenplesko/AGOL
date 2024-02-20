@@ -41,7 +41,7 @@
 
                 // Set the hostname to the on-premise portal
                 // source: https://developers.arcgis.com/javascript/latest/api-reference/esri-config.html#portalUrl
-                esriConfig.portalUrl = "https://luna.flemingcollege.ca/arcgis"
+                esriConfig.portalUrl = "https://www.arcgis.com"
 
 
                 // API Key provided by Shawn Morgan
@@ -49,7 +49,7 @@
 
             
                 // Loading the Canada web map layer from AGOL
-                const canadawebmap = new WebMap({
+                const map = new WebMap({
                     portalItem: {
                         id: "43824cea466c47de95576ea472c44f66"
                     } 
@@ -57,7 +57,7 @@
 
                 // Create a MapView
                 const view = new MapView({
-                    map: canadawebmap,
+                    map: map,
                     container: "viewDiv"
                 });
 
