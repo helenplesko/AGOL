@@ -38,7 +38,13 @@
                 "esri/layers/GraphicsLayer",
                 ], function(esriConfig, WebMap, MapView, Graphic, GraphicsLayer) {
 
-                // API Key created in ArcGIS Developers
+
+                // Set the hostname to the on-premise portal
+                // source: https://developers.arcgis.com/javascript/latest/api-reference/esri-config.html#portalUrl
+                esriConfig.portalUrl = "https://luna.flemingcollege.ca/arcgis"
+
+
+                // API Key provided by Shawn Morgan
                 esriConfig.apiKey = "AAPK7ea8e38f6b4b4f969ab170c41c01634akao_m4e5gL3AyABug_bvD9dN7kbXw7BSISXg4Y558XYUVj59ej6DtByYM0Cms4Tz";
 
             
