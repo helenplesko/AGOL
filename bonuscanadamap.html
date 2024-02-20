@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <!-- Enhanced map completed by Helen Plesko on February 7, 2024 -->
+
+        <!-- List of ArcGIS Maps SDK for JavaScript tutorials explored for this deliverable: -->
+            <!-- Load a basic WebMap: https://developers.arcgis.com/javascript/latest/sample-code/webmap-basic/ -->
+            <!-- Using Esri Icon Fonts with map graphics: https://developers.arcgis.com/javascript/latest/sample-code/styling-icon-fonts/ -->
+            
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <title>Top 5 Romantic Destinations</title>
+
+        <style>
+            html,
+            body,
+            #viewDiv {
+                padding: 0;
+                margin: 0;
+                height: 100%;
+                width: 100%;
+            }
+        </style>
+
+        <!-- References to the CSS file and JS library -->
+        <link rel="stylesheet" href="https://js.arcgis.com/4.28/esri/themes/light/main.css">
+        <script src="https://js.arcgis.com/4.28/"></script>
+
+        <!-- Load the modules with the require function -->
+        <script>
+            require([
+                "esri/config", 
+                "esri/WebMap", 
+                "esri/views/MapView",
+                "esri/Graphic",
+                "esri/layers/GraphicsLayer",
+                ], function(esriConfig, Map, MapView, Graphic, GraphicsLayer, FeatureLayer) {
+
+                // API Key created in ArcGIS Developers
+                esriConfig.apiKey = "AAPK7ea8e38f6b4b4f969ab170c41c01634akao_m4e5gL3AyABug_bvD9dN7kbXw7BSISXg4Y558XYUVj59ej6DtByYM0Cms4Tz";
+
+            
+                // Loading the Canada web map layer from AGOL
+                const canadawebmap = new WebMap({
+                    portalItem: {
+                        id: "43824cea466c47de95576ea472c44f66"
+                    } 
+                });
+
+                // Create a MapView
+                const view = new MapView({
+                    map: canadawebmap,
+                    container: "viewDiv"
+                });
+
+
+                // Add the graphics layer to store graphics
+                const graphicsLayer = new GraphicsLayer();
+                map.add(graphicsLayer);
+
+
+                /////////// CAPITAL CITY OF CANADA ///////////
+                // 1) OTTAWA, ONTARIO
+                const ottawaPoint = { // Create a point
+                    type: "point",
+                    longitude: -75.695000,
+                    latitude: 45.424721
+                }; 
+                const ottawaTextSymbol = new TextSymbol ({ // Customize the Esri icon
+                    color: "#000",
+                    text: "\ue67f", // esri-icon-favorites
+                    font: {
+                        size: 16,
+                        family: "CalciteWebCoreIcons"
+                    }
+                });
+                const ottawaPopUp = { // Create a pop-up for the point graphic when it is clicked
+                    title: "{Name}",
+                    content: "{Description}"
+                }
+                const ottawaAttributes = { // Info for inside pop-up
+                    Name: "Ottawa, Ontario",
+                    Description: "Ottawa is Canada's Capital City."
+                }
+                const ottawaGraphic = new Graphic({ // Create a point graphic
+                    geometry: ottawaPoint,
+                    symbol: ottawaTextSymbol,
+                    attributes: ottawaAttributes,
+                    popupTemplate: ottawaPopUp
+                });
+                graphicsLayer.add(ottawaGraphic); // Add the graphic for this point to the graphic layer
+
+            });
+        </script>
+
+    </head>
+    
+    <body>
+
+        <!-- Div to hold map contents -->
+        <div id="viewDiv"></div>
+
+    </body>
+</html>
