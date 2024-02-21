@@ -62,19 +62,18 @@
                 const view = new MapView({
                     map: map,
                     container: "viewDiv",
-                    center: [-101.46651877655782, 68.21568712095934],
+                    center: [-98.7318236546534, 71.8246139477166],
                     zoom: 3
                 });
 
 
                 /////////// CANADA ///////////
                 const canadaPopUp = { // Define popup for Canada feature layer
-                    title: "Region of Canada",
-                    content: "{PRNAME}"
+                    title: "{PRENAME}"
                 }
                 const Canada = new FeatureLayer ({ // Adding Canada feature layer from AGOL, accessed directly from Luna Server
                     url: "https://luna.flemingcollege.ca/arcgis/rest/services/geom99am/hpleskoCanada/MapServer/0",
-                    outFields: ["PRNAME"],
+                    outFields: ["PRENAME"],
                     popupTemplate: canadaPopUp
                 });
                 map.add(Canada); // Add the feature layer to the map
