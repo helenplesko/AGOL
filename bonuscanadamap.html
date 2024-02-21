@@ -8,8 +8,10 @@
             <!-- Load a basic WebMap: https://developers.arcgis.com/javascript/latest/sample-code/webmap-basic/ -->
             <!-- Using Esri Icon Fonts with map graphics: https://developers.arcgis.com/javascript/latest/sample-code/styling-icon-fonts/ -->
             <!-- Display a pop-up: https://developers.arcgis.com/javascript/latest/tutorials/display-a-pop-up/ -->
+            <!-- Multiple popup elements: https://developers.arcgis.com/javascript/latest/sample-code/popup-multipleelements/ -->
             <!-- Add a point, line, and polygon: https://developers.arcgis.com/javascript/latest/tutorials/add-a-point-line-and-polygon/ -->
             <!-- Add a point feature layer: https://developers.arcgis.com/javascript/latest/tutorials/add-a-feature-layer/ -->
+            <!-- Multiple popup elements: https://developers.arcgis.com/javascript/latest/sample-code/popup-multipleelements/ -->
             
 
         <meta charset="utf-8" />
@@ -69,7 +71,7 @@
                 });
 
 
-                // Add the Legend widget to better visualize the data.
+                // Adding a Legend widget
                 view.ui.add(new Expand({ content: new Legend({ view }), view }), "top-left");
 
 
@@ -114,8 +116,8 @@
                     },
                     {
                         type: "media",
+                        title: "Landmark",
                         mediaInfos: [{ 
-                            title: "Landmark",
                             type: "image",
                             caption: "Parliament Hill in Ottawa.",
                             value: {
