@@ -2,12 +2,14 @@
 
 <html>
     <head>
-        <!-- Enhanced map completed by Helen Plesko on February 7, 2024 -->
+        <!-- Map of Canada to support young learners -->
 
         <!-- List of ArcGIS Maps SDK for JavaScript tutorials explored for this deliverable: -->
             <!-- Load a basic WebMap: https://developers.arcgis.com/javascript/latest/sample-code/webmap-basic/ -->
             <!-- Using Esri Icon Fonts with map graphics: https://developers.arcgis.com/javascript/latest/sample-code/styling-icon-fonts/ -->
+            <!-- Display a pop-up: https://developers.arcgis.com/javascript/latest/tutorials/display-a-pop-up/ -->
             <!-- Add a point, line, and polygon: https://developers.arcgis.com/javascript/latest/tutorials/add-a-point-line-and-polygon/ -->
+            <!-- Add a point feature layer: https://developers.arcgis.com/javascript/latest/tutorials/add-a-feature-layer/ -->
             
 
         <meta charset="utf-8" />
@@ -61,8 +63,21 @@
                     map: map,
                     container: "viewDiv",
                     center: [-101.46651877655782, 68.21568712095934],
-                    zoom: 2
+                    zoom: 3
                 });
+
+
+                /////////// CANADA ///////////
+                const canadaPopUp = { // Define popup for Canada feature layer
+                    title: "Region of Canada",
+                    content: "{PRNAME}"
+                }
+                const Canada = new FeatureLayer ({ // Adding Canada feature layer from AGOL, accessed directly from Luna Server
+                    url: "https://luna.flemingcollege.ca/arcgis/rest/services/geom99am/hpleskoCanada/MapServer/0",
+                    outFields: ["PRNAME"],
+                    popupTemplate: canadaPopUp
+                });
+                map.add(Canada); // Add the feature layer to the map
 
 
                 // Add the graphics layer to store graphics
@@ -426,13 +441,6 @@
                     popupTemplate: whitehorsePopUp
                 });
                 graphicsLayer.add(whitehorseGraphic); // Add the graphic for this point to the graphic layer
-
-
-                // Adding Canada layer from AGOL
-                const Canada = new FeatureLayer ({
-                    url: "https://luna.flemingcollege.ca/arcgis/rest/services/geom99am/hpleskoCanada/MapServer/0"
-                });
-                map.add(Canada, 0); // Add feature layer to map before the graphics
 
 
             });
