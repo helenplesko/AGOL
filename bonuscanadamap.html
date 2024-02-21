@@ -39,8 +39,10 @@
                 "esri/views/MapView",
                 "esri/Graphic",
                 "esri/layers/GraphicsLayer",
-                "esri/layers/FeatureLayer"
-                ], function(esriConfig, Map, MapView, Graphic, GraphicsLayer, FeatureLayer) {
+                "esri/layers/FeatureLayer",
+                "esri/widgets/Legend",
+                "esri/widgets/Expand"
+                ], function(esriConfig, Map, MapView, Graphic, GraphicsLayer, FeatureLayer, Legend, Expand) {
 
 
                 // Set the hostname to the on-premise portal
@@ -65,6 +67,10 @@
                     center: [-98.7318236546534, 71.8246139477166],
                     zoom: 3
                 });
+
+
+                // Add the Legend widget to better visualize the data.
+                view.ui.add(new Expand({ content: new Legend({ view }), view }), "top-left");
 
 
                 /////////// CANADA ///////////
@@ -107,12 +113,15 @@
                         text: "Ottawa is the capital city of Canada."
                     },
                     {
-                        title: "Landmark",
-                        type: "image",
-                        caption: "Parliament Hill in Ottawa.",
-                        value: {
-                            sourceURL: "https://upload.wikimedia.org/wikipedia/commons/b/b2/Centre_Block_-_Parliament_Hill.jpg"
-                        }
+                        type: "media",
+                        mediaInfos: [{ 
+                            title: "Landmark",
+                            type: "image",
+                            caption: "Parliament Hill in Ottawa.",
+                            value: {
+                                sourceURL: "https://upload.wikimedia.org/wikipedia/commons/b/b2/Centre_Block_-_Parliament_Hill.jpg"
+                            }
+                        }]
                     }
                 ]};
                 const ottawaGraphic = new Graphic({ // Create a point graphic
