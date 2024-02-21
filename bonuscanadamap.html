@@ -63,13 +63,6 @@
                 });
 
 
-                // Adding Canada layer from server
-                const Canada = new FeatureLayer({
-                    url: "https://luna.flemingcollege.ca/arcgis/rest/services/geom99am/./MapServer/0"
-                });
-                map.add(Canada); // Add feature layer to map
-
-
                 // Add the graphics layer to store graphics
                 const graphicsLayer = new GraphicsLayer();
                 map.add(graphicsLayer);
@@ -431,6 +424,16 @@
                     popupTemplate: whitehorsePopUp
                 });
                 graphicsLayer.add(whitehorseGraphic); // Add the graphic for this point to the graphic layer
+
+
+                // Adding Canada layer from AGOL
+                const Canada = new FeatureLayer({
+                    portalItem: {
+                        id: "f4942e7f088643e5a3a57ff97c0dd365"
+                    }
+                });
+                map.add(Canada, 0); // Add feature layer to map before the graphics
+
 
             });
         </script>
