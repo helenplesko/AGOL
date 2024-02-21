@@ -101,17 +101,23 @@
                     }
                 };
                 const ottawaPopUp = { // Create a pop-up for the point graphic when it is clicked
-                    title: "{Name}",
-                    content: "{Description}"
-                }
-                const ottawaAttributes = { // Info for inside pop-up
-                    Name: "Ottawa, Ontario",
-                    Description: "Ottawa is the capital city of Canada."
-                }
+                    title: "Ottawa, Ontario",
+                    content: [{
+                        type: "text",
+                        text: "Ottawa is the capital city of Canada."
+                    },
+                    {
+                        title: "Landmark",
+                        type: "image",
+                        caption: "Parliament Hill in Ottawa.",
+                        value: {
+                            sourceURL: "https://upload.wikimedia.org/wikipedia/commons/b/b2/Centre_Block_-_Parliament_Hill.jpg"
+                        }
+                    }
+                ]};
                 const ottawaGraphic = new Graphic({ // Create a point graphic
                     geometry: ottawaPoint,
                     symbol: ottawaTextSymbol,
-                    attributes: ottawaAttributes,
                     popupTemplate: ottawaPopUp
                 });
                 graphicsLayer.add(ottawaGraphic); // Add the graphic for this point to the graphic layer
