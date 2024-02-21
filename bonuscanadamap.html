@@ -52,7 +52,7 @@
             
                 // Creating a new map with a terrain basemap
                 const map = new Map({
-                    basemap: "terrain"
+                    basemap: "topo-vector"
                 });
 
 
@@ -60,6 +60,8 @@
                 const view = new MapView({
                     map: map,
                     container: "viewDiv",
+                    center: [-101.46651877655782, 68.21568712095934],
+                    zoom: 10
                 });
 
 
@@ -427,10 +429,8 @@
 
 
                 // Adding Canada layer from AGOL
-                const Canada = new FeatureLayer({
-                    portalItem: {
-                        id: "f4942e7f088643e5a3a57ff97c0dd365"
-                    }
+                const Canada = new FeatureLayer ({
+                    url: "https://luna.flemingcollege.ca/arcgis/rest/services/geom99am/hpleskoCanada/MapServer/0"
                 });
                 map.add(Canada, 0); // Add feature layer to map before the graphics
 
