@@ -65,7 +65,7 @@
 
                 // Adding Canada layer from server
                 const Canada = new FeatureLayer({
-                    url: "https://luna.flemingcollege.ca/arcgis/rest/services/geom99am/hpleskoCanada/MapServer/0"
+                    url: "https://luna.flemingcollege.ca/arcgis/rest/services/geom99am/./MapServer/0"
                 });
                 map.add(Canada); // Add feature layer to map
 
@@ -97,7 +97,7 @@
                 }
                 const ottawaAttributes = { // Info for inside pop-up
                     Name: "Ottawa, Ontario",
-                    Description: "Ottawa is Canada's Capital City."
+                    Description: "Ottawa is the capital city of Canada."
                 }
                 const ottawaGraphic = new Graphic({ // Create a point graphic
                     geometry: ottawaPoint,
@@ -125,7 +125,7 @@
                 }
                 const torontoAttributes = { // Info for inside pop-up
                     Name: "Toronto, Ontario",
-                    Description: "Toronto is Ontario's Capital City."
+                    Description: "Toronto is the capital city of Ontario."
                 }
                 const torontoGraphic = new Graphic({ // Create a point graphic
                     geometry: torontoPoint,
@@ -134,6 +134,303 @@
                     popupTemplate: torontoPopUp
                 });
                 graphicsLayer.add(torontoGraphic); // Add the graphic for this point to the graphic layer
+
+
+                // 2) CHARLOTTETOWN, PRINCE EDWARD ISLAND
+                const charlottetownPoint = { // Create a point
+                    type: "point",
+                    longitude: -63.129166,
+                    latitude: 46.238888
+                }; 
+                const charlottetownMarkerSymbol = { 
+                    type: "simple-marker",
+                    color: "#000"
+                };
+                const charlottetownPopUp = { // Create a pop-up for the point graphic when it is clicked
+                    title: "{Name}",
+                    content: "{Description}"
+                }
+                const charlottetownAttributes = { // Info for inside pop-up
+                    Name: "Charlottetown, Prince Edward Island",
+                    Description: "Charlottetown is the capital city of Prince Edward Island."
+                }
+                const charlottetownGraphic = new Graphic({ // Create a point graphic
+                    geometry: charlottetownPoint,
+                    symbol: charlottetownMarkerSymbol,
+                    attributes: charlottetownAttributes,
+                    popupTemplate: charlottetownPopUp
+                });
+                graphicsLayer.add(charlottetownGraphic); // Add the graphic for this point to the graphic layer
+
+
+                // 3) HALIFAX, NOVA SCOTIA
+                const halifaxPoint = { // Create a point
+                    type: "point",
+                    longitude: -63.582687,
+                    latitude: 44.651070
+                }; 
+                const halifaxMarkerSymbol = { 
+                    type: "simple-marker",
+                    color: "#000"
+                };
+                const halifaxPopUp = { // Create a pop-up for the point graphic when it is clicked
+                    title: "{Name}",
+                    content: "{Description}"
+                }
+                const halifaxAttributes = { // Info for inside pop-up
+                    Name: "Halifax, Nova Scotia",
+                    Description: "Halifax is the capital city of Nova Scotia."
+                }
+                const halifaxGraphic = new Graphic({ // Create a point graphic
+                    geometry: halifaxPoint,
+                    symbol: halifaxMarkerSymbol,
+                    attributes: halifaxAttributes,
+                    popupTemplate: halifaxPopUp
+                });
+                graphicsLayer.add(halifaxGraphic); // Add the graphic for this point to the graphic layer
+
+
+                // 4) VICTORIA, BRITISH COLUMBIA
+                const victoriaPoint = { // Create a point
+                    type: "point",
+                    longitude: -123.329773,
+                    latitude: 48.407326
+                }; 
+                const victoriaMarkerSymbol = { 
+                    type: "simple-marker",
+                    color: "#000"
+                };
+                const victoriaPopUp = { // Create a pop-up for the point graphic when it is clicked
+                    title: "{Name}",
+                    content: "{Description}"
+                }
+                const victoriaAttributes = { // Info for inside pop-up
+                    Name: "Victoria, British Columbia",
+                    Description: "Victoria is the capital city of British Columbia."
+                }
+                const victoriaGraphic = new Graphic({ // Create a point graphic
+                    geometry: victoriaPoint,
+                    symbol: victoriaMarkerSymbol,
+                    attributes: victoriaAttributes,
+                    popupTemplate: victoriaPopUp
+                });
+                graphicsLayer.add(victoriaGraphic); // Add the graphic for this point to the graphic layer
+
+
+                // 5) QUEBEC CITY, QUEBEC
+                const quebeccityPoint = { // Create a point
+                    type: "point",
+                    longitude: -71.254028,
+                    latitude: 46.829853
+                }; 
+                const quebeccityMarkerSymbol = { 
+                    type: "simple-marker",
+                    color: "#000"
+                };
+                const quebeccityPopUp = { // Create a pop-up for the point graphic when it is clicked
+                    title: "{Name}",
+                    content: "{Description}"
+                }
+                const quebeccityAttributes = { // Info for inside pop-up
+                    Name: "Quebec City, Quebec",
+                    Description: "Quebec City is the capital city of Quebec."
+                }
+                const quebeccityGraphic = new Graphic({ // Create a point graphic
+                    geometry: quebeccityPoint,
+                    symbol: quebeccityMarkerSymbol,
+                    attributes: quebeccityAttributes,
+                    popupTemplate: quebeccityPopUp
+                });
+                graphicsLayer.add(quebeccityGraphic); // Add the graphic for this point to the graphic layer
+
+
+                // 6) EDMONTON, ALBERTA
+                const edmontonPoint = { // Create a point
+                    type: "point",
+                    longitude: -113.323975,
+                    latitude: 53.631611
+                }; 
+                const edmontonMarkerSymbol = { 
+                    type: "simple-marker",
+                    color: "#000"
+                };
+                const edmontonPopUp = { // Create a pop-up for the point graphic when it is clicked
+                    title: "{Name}",
+                    content: "{Description}"
+                }
+                const edmontonAttributes = { // Info for inside pop-up
+                    Name: "Edmonton, Alberta",
+                    Description: "Edmonton is the capital city of Alberta."
+                }
+                const edmontonGraphic = new Graphic({ // Create a point graphic
+                    geometry: edmontonPoint,
+                    symbol: edmontonMarkerSymbol,
+                    attributes: edmontonAttributes,
+                    popupTemplate: edmontonPopUp
+                });
+                graphicsLayer.add(edmontonGraphic); // Add the graphic for this point to the graphic layer
+
+
+                // 7) IQALUIT, NUNAVUT
+                const iqaluitPoint = { // Create a point
+                    type: "point",
+                    longitude: -68.519722,
+                    latitude: 63.748611
+                }; 
+                const iqaluitMarkerSymbol = { 
+                    type: "simple-marker",
+                    color: "#000"
+                };
+                const iqaluitPopUp = { // Create a pop-up for the point graphic when it is clicked
+                    title: "{Name}",
+                    content: "{Description}"
+                }
+                const iqaluitAttributes = { // Info for inside pop-up
+                    Name: "Iqaluit, Nunavut",
+                    Description: "Iqaluit is the capital city of Nunavut."
+                }
+                const iqaluitGraphic = new Graphic({ // Create a point graphic
+                    geometry: iqaluitPoint,
+                    symbol: iqaluitMarkerSymbol,
+                    attributes: iqaluitAttributes,
+                    popupTemplate: iqaluitPopUp
+                });
+                graphicsLayer.add(iqaluitGraphic); // Add the graphic for this point to the graphic layer
+
+
+                // 8) WINNIPEG, MANITOBA
+                const winnipegPoint = { // Create a point
+                    type: "point",
+                    longitude: -97.13845,
+                    latitude: 49.895077
+                }; 
+                const winnipegMarkerSymbol = { 
+                    type: "simple-marker",
+                    color: "#000"
+                };
+                const winnipegPopUp = { // Create a pop-up for the point graphic when it is clicked
+                    title: "{Name}",
+                    content: "{Description}"
+                }
+                const winnipegAttributes = { // Info for inside pop-up
+                    Name: "Winnipeg, Manitoba",
+                    Description: "Winnipeg is the capital city of Manitoba."
+                }
+                const winnipegGraphic = new Graphic({ // Create a point graphic
+                    geometry: winnipegPoint,
+                    symbol: winnipegMarkerSymbol,
+                    attributes: winnipegAttributes,
+                    popupTemplate: winnipegPopUp
+                });
+                graphicsLayer.add(winnipegGraphic); // Add the graphic for this point to the graphic layer
+
+
+                // 9) REGINA, SASKATCHEWAN
+                const reginaPoint = { // Create a point
+                    type: "point",
+                    longitude: -104.618896,
+                    latitude: 50.445210
+                }; 
+                const reginaMarkerSymbol = { 
+                    type: "simple-marker",
+                    color: "#000"
+                };
+                const reginaPopUp = { // Create a pop-up for the point graphic when it is clicked
+                    title: "{Name}",
+                    content: "{Description}"
+                }
+                const reginaAttributes = { // Info for inside pop-up
+                    Name: "Regina, Saskatchewan",
+                    Description: "Regina is the capital city of Saskatchewan."
+                }
+                const reginaGraphic = new Graphic({ // Create a point graphic
+                    geometry: reginaPoint,
+                    symbol: reginaMarkerSymbol,
+                    attributes: reginaAttributes,
+                    popupTemplate: reginaPopUp
+                });
+                graphicsLayer.add(reginaGraphic); // Add the graphic for this point to the graphic layer
+
+
+                // 10) FREDERICTON, NEW BRUNSWICK
+                const frederictonPoint = { // Create a point
+                    type: "point",
+                    longitude: -66.646332,
+                    latitude: 45.964993
+                }; 
+                const frederictonMarkerSymbol = { 
+                    type: "simple-marker",
+                    color: "#000"
+                };
+                const frederictonPopUp = { // Create a pop-up for the point graphic when it is clicked
+                    title: "{Name}",
+                    content: "{Description}"
+                }
+                const frederictonAttributes = { // Info for inside pop-up
+                    Name: "Fredericton, New Brunswick",
+                    Description: "Fredericton is the capital city of New Brunswick."
+                }
+                const frederictonGraphic = new Graphic({ // Create a point graphic
+                    geometry: frederictonPoint,
+                    symbol: frederictonMarkerSymbol,
+                    attributes: frederictonAttributes,
+                    popupTemplate: frederictonPopUp
+                });
+                graphicsLayer.add(frederictonGraphic); // Add the graphic for this point to the graphic layer
+
+
+                // 11) YELLOWKNIFE, NORTHWEST TERRITORIES
+                const yellowknifePoint = { // Create a point
+                    type: "point",
+                    longitude: -114.371788,
+                    latitude: 62.453972
+                }; 
+                const yellowknifeMarkerSymbol = { 
+                    type: "simple-marker",
+                    color: "#000"
+                };
+                const yellowknifePopUp = { // Create a pop-up for the point graphic when it is clicked
+                    title: "{Name}",
+                    content: "{Description}"
+                }
+                const yellowknifeAttributes = { // Info for inside pop-up
+                    Name: "Yellowknife, Northwest Territories",
+                    Description: "Yellowknife is the capital city of the Northwest Territories."
+                }
+                const yellowknifeGraphic = new Graphic({ // Create a point graphic
+                    geometry: yellowknifePoint,
+                    symbol: yellowknifeMarkerSymbol,
+                    attributes: yellowknifeAttributes,
+                    popupTemplate: yellowknifePopUp
+                });
+                graphicsLayer.add(yellowknifeGraphic); // Add the graphic for this point to the graphic layer
+
+
+                // 12) WHITEHORSE, YUKON
+                const whitehorsePoint = { // Create a point
+                    type: "point",
+                    longitude: -135.056839,
+                    latitude: 60.721188
+                }; 
+                const whitehorseMarkerSymbol = { 
+                    type: "simple-marker",
+                    color: "#000"
+                };
+                const whitehorsePopUp = { // Create a pop-up for the point graphic when it is clicked
+                    title: "{Name}",
+                    content: "{Description}"
+                }
+                const whitehorseAttributes = { // Info for inside pop-up
+                    Name: "Whitehorse, Yukon Territory",
+                    Description: "Whitehorse is the capital city of the Yukon."
+                }
+                const whitehorseGraphic = new Graphic({ // Create a point graphic
+                    geometry: whitehorsePoint,
+                    symbol: whitehorseMarkerSymbol,
+                    attributes: whitehorseAttributes,
+                    popupTemplate: whitehorsePopUp
+                });
+                graphicsLayer.add(whitehorseGraphic); // Add the graphic for this point to the graphic layer
 
             });
         </script>
