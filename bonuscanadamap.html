@@ -13,6 +13,7 @@
             <!-- Add a point feature layer: https://developers.arcgis.com/javascript/latest/tutorials/add-a-feature-layer/ -->
             <!-- Multiple popup elements: https://developers.arcgis.com/javascript/latest/sample-code/popup-multipleelements/ -->
             
+        <!-- Population info from Statistics Canada (2021): https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/details/page.cfm -->
 
         <meta charset="utf-8" />
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
@@ -110,28 +111,25 @@
                 };
                 const ottawaPopUp = { // Create a pop-up for the point graphic when it is clicked
                     title: "Ottawa, Ontario",
-                    content: [{
+                    content: [
+                    {
                         type: "text",
-                        text: "Ottawa is the capital city of Canada. It is located in the province of Ontario. According to Statistics Canada, in 2021, Ottawa had a population of 1,017,449 and Ontario had a population of 14,223,942."
+                        text: "Ottawa is the capital city of Canada. It is located in Ontario, which is one of ten Canadian provinces. According to Statistics Canada (2021), Ottawa's population is 1,017,449 and Ontario's population is 14,223,942."
                     },
                     {
                         type: "media",
                         title: "Landmarks",
-                        mediaInfos: [{ 
+                        mediaInfos: [
+                        { 
                             type: "image",
-                            caption: "Parliament Hill in Ottawa, the main hub for our Canadian government.",
-                            value: {
-                                sourceURL: "https://upload.wikimedia.org/wikipedia/commons/b/b2/Centre_Block_-_Parliament_Hill.jpg"
-                            }
+                            caption: "Parliament Hill in Ottawa, the main hub for our federal government.",
+                            value: {sourceURL: "https://upload.wikimedia.org/wikipedia/commons/b/b2/Centre_Block_-_Parliament_Hill.jpg"}
                         },
                         {
                             type: "image",
                             caption: "Royal Canadian Mint in Ottawa, where Canadian collector coins and medals are made.",
-                            value: {
-                                sourceURL: "https://live.staticflickr.com/5556/15032827975_bc6375b28e_b.jpg"
-                            }
-                        }
-                        ]
+                            value: {sourceURL: "https://live.staticflickr.com/5556/15032827975_bc6375b28e_b.jpg"}
+                        }]
                     }
                 ]};
                 const ottawaGraphic = new Graphic({ // Create a point graphic
@@ -154,17 +152,36 @@
                     color: "#000"
                 };
                 const torontoPopUp = { // Create a pop-up for the point graphic when it is clicked
-                    title: "{Name}",
-                    content: "{Description}"
-                }
-                const torontoAttributes = { // Info for inside pop-up
-                    Name: "Toronto, Ontario",
-                    Description: "Toronto is the capital city of Ontario."
-                }
+                    title: "Toronto, Ontario",
+                    content: [
+                    {
+                        type: "text",
+                        text: "Toronto is the capital city of Ontario, which is one of ten Canadian provinces. According to Statistics Canada (2021), Toronto's population is 2,794,356 and Ontario's population is 14,223,942."
+                    },
+                    {
+                        type: "media",
+                        title: "Landmarks",
+                        mediaInfos: [
+                        { 
+                            type: "image",
+                            caption: "Toronto's City Hall is the hub for the municipal government.",
+                            value: {sourceURL: "https://flic.kr/p/YcuZEm"}
+                        },
+                        {
+                            type: "image",
+                            caption: "Toronto's Legislative Building is the hub for the Ontario provincial government.",
+                            value: {sourceURL: "https://live.staticflickr.com/65535/52854242281_973ff87d84_b.jpg"}
+                        },
+                        {
+                            type: "image",
+                            caption: "CN Tower, located in downtown Toronto, is known for its soaring height and incredible views of the city.",
+                            value: {sourceURL: "https://miro.medium.com/v2/resize:fit:1400/1*QaNlZK_5P7B42CCpuwye3g.jpeg"}
+                        }]
+                    }
+                ]};
                 const torontoGraphic = new Graphic({ // Create a point graphic
                     geometry: torontoPoint,
                     symbol: torontoMarkerSymbol,
-                    attributes: torontoAttributes,
                     popupTemplate: torontoPopUp
                 });
                 graphicsLayer.add(torontoGraphic); // Add the graphic for this point to the graphic layer
@@ -181,17 +198,31 @@
                     color: "#000"
                 };
                 const charlottetownPopUp = { // Create a pop-up for the point graphic when it is clicked
-                    title: "{Name}",
-                    content: "{Description}"
-                }
-                const charlottetownAttributes = { // Info for inside pop-up
-                    Name: "Charlottetown, Prince Edward Island",
-                    Description: "Charlottetown is the capital city of Prince Edward Island."
-                }
+                    title: "Charlottetown, Prince Edward Island",
+                    content: [
+                    {
+                        type: "text",
+                        text: "Charlottetown is the capital city of Prince Edward Island, which is one of ten Canadian provinces. According to Statistics Canada (2021), Charlottetown's population is 38,809 and Prince Edward Island's population is 154,331."
+                    },
+                    {
+                        type: "media",
+                        title: "Landmarks",
+                        mediaInfos: [
+                        { 
+                            type: "image",
+                            caption: "Charlottetown's City Hall is the hub for the municipal government.",
+                            value: {sourceURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/City_Hall%2C_Charlottetown%2C_PEI_%2819596553396%29.jpg/1200px-City_Hall%2C_Charlottetown%2C_PEI_%2819596553396%29.jpg?20181114182228"}
+                        },
+                        { 
+                            type: "image",
+                            caption: "Charlottetown's Legislative Building is the hub for the PEI provincial government.",
+                            value: {sourceURL: "https://upload.wikimedia.org/wikipedia/commons/b/b7/Government_House%2C_Charlottetown%2C_PEI_%2819001805863%29.jpg"}
+                        }]
+                    }
+                ]};
                 const charlottetownGraphic = new Graphic({ // Create a point graphic
                     geometry: charlottetownPoint,
                     symbol: charlottetownMarkerSymbol,
-                    attributes: charlottetownAttributes,
                     popupTemplate: charlottetownPopUp
                 });
                 graphicsLayer.add(charlottetownGraphic); // Add the graphic for this point to the graphic layer
@@ -208,17 +239,31 @@
                     color: "#000"
                 };
                 const halifaxPopUp = { // Create a pop-up for the point graphic when it is clicked
-                    title: "{Name}",
-                    content: "{Description}"
-                }
-                const halifaxAttributes = { // Info for inside pop-up
-                    Name: "Halifax, Nova Scotia",
-                    Description: "Halifax is the capital city of Nova Scotia."
-                }
+                    title: "Halifax, Nova Scotia",
+                    content: [
+                    {
+                        type: "text",
+                        text: "Halifax is the capital city of Nova Scotia, which is one of ten Canadian provinces. According to Statistics Canada (2021), Halifax's population is 439,819 and Nova Scotia's population is 969,383."
+                    },
+                    {
+                        type: "media",
+                        title: "Landmarks",
+                        mediaInfos: [
+                        { 
+                            type: "image",
+                            caption: "Halifax's City Hall is the hub for the municipal government.",
+                            value: {sourceURL: "https://upload.wikimedia.org/wikipedia/commons/c/ca/HalifaxCityHall.jpg"}
+                        },
+                        {
+                            type: "image",
+                            caption: "Halifax's Legislative Building is the hub for the Nova Scotia provincial government.",
+                            value: {sourceURL: "https://flic.kr/p/6uYyy5"}
+                        }]
+                    }
+                ]};
                 const halifaxGraphic = new Graphic({ // Create a point graphic
                     geometry: halifaxPoint,
                     symbol: halifaxMarkerSymbol,
-                    attributes: halifaxAttributes,
                     popupTemplate: halifaxPopUp
                 });
                 graphicsLayer.add(halifaxGraphic); // Add the graphic for this point to the graphic layer
@@ -235,17 +280,31 @@
                     color: "#000"
                 };
                 const victoriaPopUp = { // Create a pop-up for the point graphic when it is clicked
-                    title: "{Name}",
-                    content: "{Description}"
-                }
-                const victoriaAttributes = { // Info for inside pop-up
-                    Name: "Victoria, British Columbia",
-                    Description: "Victoria is the capital city of British Columbia."
-                }
+                    title: "Victoria, British Columbia",
+                    content: [
+                    {
+                        type: "text",
+                        text: "Victoria is the capital city of British Columbia, which is one of ten Canadian provinces. According to Statistics Canada (2021), Victoria's population is 91,867 and British Columbia's population is 5,000,879."
+                    },
+                    {
+                        type: "media",
+                        title: "Landmarks",
+                        mediaInfos: [
+                        { 
+                            type: "image",
+                            caption: "Victoria's City Hall is the hub for the municipal government.",
+                            value: {sourceURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Victoria%2C_BC_-_City_Hall_01_%2819963600353%29.jpg/640px-Victoria%2C_BC_-_City_Hall_01_%2819963600353%29.jpg"}
+                        },
+                        {
+                            type: "image",
+                            caption: "Victoria's Legislative Building is the hub for the British Columbia provincial government.",
+                            value: {sourceURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/British_Columbia_House_-_panoramio.jpg/640px-British_Columbia_House_-_panoramio.jpg"}
+                        }]
+                    }
+                ]};
                 const victoriaGraphic = new Graphic({ // Create a point graphic
                     geometry: victoriaPoint,
                     symbol: victoriaMarkerSymbol,
-                    attributes: victoriaAttributes,
                     popupTemplate: victoriaPopUp
                 });
                 graphicsLayer.add(victoriaGraphic); // Add the graphic for this point to the graphic layer
@@ -262,17 +321,31 @@
                     color: "#000"
                 };
                 const quebeccityPopUp = { // Create a pop-up for the point graphic when it is clicked
-                    title: "{Name}",
-                    content: "{Description}"
-                }
-                const quebeccityAttributes = { // Info for inside pop-up
-                    Name: "Quebec City, Quebec",
-                    Description: "Quebec City is the capital city of Quebec."
-                }
+                    title: "Quebec City, Quebec",
+                    content: [
+                    {
+                        type: "text",
+                        text: "Quebec City is the capital city of Quebec, which is one of ten Canadian provinces. According to Statistics Canada (2021), Quebec City's population is 549,459 and Quebec's population is 8,501,833."
+                    },
+                    {
+                        type: "media",
+                        title: "Landmarks",
+                        mediaInfos: [
+                        { 
+                            type: "image",
+                            caption: "Quebec City's City Hall is the hub for the municipal government.",
+                            value: {sourceURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Hotel_de_ville_de_Quebec_08.jpg/640px-Hotel_de_ville_de_Quebec_08.jpg"}
+                        },
+                        {
+                            type: "image",
+                            caption: "Quebec City's Legislative Building is the hub for the Quebec provincial government.",
+                            value: {sourceURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Qu%C3%A9bec_-_H%C3%B4tel_du_Parlement.jpg/640px-Qu%C3%A9bec_-_H%C3%B4tel_du_Parlement.jpg"}
+                        }]
+                    }
+                ]};
                 const quebeccityGraphic = new Graphic({ // Create a point graphic
                     geometry: quebeccityPoint,
                     symbol: quebeccityMarkerSymbol,
-                    attributes: quebeccityAttributes,
                     popupTemplate: quebeccityPopUp
                 });
                 graphicsLayer.add(quebeccityGraphic); // Add the graphic for this point to the graphic layer
@@ -289,17 +362,31 @@
                     color: "#000"
                 };
                 const edmontonPopUp = { // Create a pop-up for the point graphic when it is clicked
-                    title: "{Name}",
-                    content: "{Description}"
-                }
-                const edmontonAttributes = { // Info for inside pop-up
-                    Name: "Edmonton, Alberta",
-                    Description: "Edmonton is the capital city of Alberta."
-                }
+                    title: "Edmonton, Alberta",
+                    content: [
+                    {
+                        type: "text",
+                        text: "Edmonton is the capital city of Alberta, which is one of ten Canadian provinces. According to Statistics Canada (2021), Edmonton's population is 1,010,899 and Alberta's population is 4,262,635."
+                    },
+                    {
+                        type: "media",
+                        title: "Landmarks",
+                        mediaInfos: [
+                        { 
+                            type: "image",
+                            caption: "Edmonton's City Hall is the hub for the municipal government.",
+                            value: {sourceURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/City_Hall_%2851632696870%29.jpg/640px-City_Hall_%2851632696870%29.jpg"}
+                        },
+                        {
+                            type: "image",
+                            caption: "Edmonton's Legislative Building is the hub for the Alberta provincial government.",
+                            value: {sourceURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Alberta-Provincial-Legislature-Building-Edmonton-Alberta-Canada-01.jpg/640px-Alberta-Provincial-Legislature-Building-Edmonton-Alberta-Canada-01.jpg"}
+                        }]
+                    }
+                ]};
                 const edmontonGraphic = new Graphic({ // Create a point graphic
                     geometry: edmontonPoint,
                     symbol: edmontonMarkerSymbol,
-                    attributes: edmontonAttributes,
                     popupTemplate: edmontonPopUp
                 });
                 graphicsLayer.add(edmontonGraphic); // Add the graphic for this point to the graphic layer
@@ -316,17 +403,27 @@
                     color: "#000"
                 };
                 const iqaluitPopUp = { // Create a pop-up for the point graphic when it is clicked
-                    title: "{Name}",
-                    content: "{Description}"
-                }
-                const iqaluitAttributes = { // Info for inside pop-up
-                    Name: "Iqaluit, Nunavut",
-                    Description: "Iqaluit is the capital city of Nunavut."
-                }
+                    title: "Iqaluit, Nunavut",
+                    content: [
+                    {
+                        type: "text",
+                        text: "Iqaluit is the capital city of Nunavut, which is one of three Canadian territories. According to Statistics Canada (2021), Iqaluit's population is 7,429 and Nunavut's population is 36,858."
+                    },
+                    {
+                        type: "media",
+                        title: "Landmarks",
+                        mediaInfos: [
+                        {
+                            type: "image",
+                            caption: "Iqaluit's Legislative Building is the hub for the Nunavut provincial government.",
+                            value: {sourceURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Leg_Building_Iqaluit_2000-08-27.jpg/640px-Leg_Building_Iqaluit_2000-08-27.jpg"}
+                        }]
+                        // Unfortunately no creative commons photos of the city hall were available to use
+                    }
+                ]};
                 const iqaluitGraphic = new Graphic({ // Create a point graphic
                     geometry: iqaluitPoint,
                     symbol: iqaluitMarkerSymbol,
-                    attributes: iqaluitAttributes,
                     popupTemplate: iqaluitPopUp
                 });
                 graphicsLayer.add(iqaluitGraphic); // Add the graphic for this point to the graphic layer
@@ -343,17 +440,31 @@
                     color: "#000"
                 };
                 const winnipegPopUp = { // Create a pop-up for the point graphic when it is clicked
-                    title: "{Name}",
-                    content: "{Description}"
-                }
-                const winnipegAttributes = { // Info for inside pop-up
-                    Name: "Winnipeg, Manitoba",
-                    Description: "Winnipeg is the capital city of Manitoba."
-                }
+                    title: "Winnipeg, Manitoba",
+                    content: [
+                    {
+                        type: "text",
+                        text: "Winnipeg is the capital city of Manitoba, which is one of ten Canadian provinces. According to Statistics Canada (2021), Winnipeg's population is 749,607 and Manitoba's population is 1,342,153."
+                    },
+                    {
+                        type: "media",
+                        title: "Landmarks",
+                        mediaInfos: [
+                        { 
+                            type: "image",
+                            caption: "Winnipeg's City Hall is the hub for the municipal government.",
+                            value: {sourceURL: "https://flic.kr/p/fp5iyY"}
+                        },
+                        {
+                            type: "image",
+                            caption: "Winnipeg's Legislative Building is the hub for the Manitoba provincial government.",
+                            value: {sourceURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Manitoba_Legislative_building_exterior_%28J%29.jpg/1200px-Manitoba_Legislative_building_exterior_%28J%29.jpg?20200212190755"}
+                        }]
+                    }
+                ]};
                 const winnipegGraphic = new Graphic({ // Create a point graphic
                     geometry: winnipegPoint,
                     symbol: winnipegMarkerSymbol,
-                    attributes: winnipegAttributes,
                     popupTemplate: winnipegPopUp
                 });
                 graphicsLayer.add(winnipegGraphic); // Add the graphic for this point to the graphic layer
@@ -370,17 +481,31 @@
                     color: "#000"
                 };
                 const reginaPopUp = { // Create a pop-up for the point graphic when it is clicked
-                    title: "{Name}",
-                    content: "{Description}"
-                }
-                const reginaAttributes = { // Info for inside pop-up
-                    Name: "Regina, Saskatchewan",
-                    Description: "Regina is the capital city of Saskatchewan."
-                }
+                    title: "Regina, Saskatchewan",
+                    content: [
+                    {
+                        type: "text",
+                        text: "Regina is the capital city of Saskatchewan, which is one of ten Canadian provinces. According to Statistics Canada (2021), Regina's population is 226,404 and Saskatchewan's population is 1,132,505."
+                    },
+                    {
+                        type: "media",
+                        title: "Landmarks",
+                        mediaInfos: [
+                        { 
+                            type: "image",
+                            caption: "Regina's City Hall is the hub for the municipal government.",
+                            value: {sourceURL: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Regina_SK_City_Hall_2019_02.jpg"}
+                        },
+                        {
+                            type: "image",
+                            caption: "Regina's Legislative Building is the hub for the Saskatchewan provincial government.",
+                            value: {sourceURL: "https://flic.kr/p/5GdFUF"}
+                        }]
+                    }
+                ]};
                 const reginaGraphic = new Graphic({ // Create a point graphic
                     geometry: reginaPoint,
                     symbol: reginaMarkerSymbol,
-                    attributes: reginaAttributes,
                     popupTemplate: reginaPopUp
                 });
                 graphicsLayer.add(reginaGraphic); // Add the graphic for this point to the graphic layer
@@ -397,17 +522,31 @@
                     color: "#000"
                 };
                 const frederictonPopUp = { // Create a pop-up for the point graphic when it is clicked
-                    title: "{Name}",
-                    content: "{Description}"
-                }
-                const frederictonAttributes = { // Info for inside pop-up
-                    Name: "Fredericton, New Brunswick",
-                    Description: "Fredericton is the capital city of New Brunswick."
-                }
+                    title: "Fredericton, New Brunswick",
+                    content: [
+                    {
+                        type: "text",
+                        text: "Fredericton is the capital city of New Brunswick, which is one of ten Canadian provinces. According to Statistics Canada (2021), Fredericton's population is 63,116 and New Brunswick's population is 775,610."
+                    },
+                    {
+                        type: "media",
+                        title: "Landmarks",
+                        mediaInfos: [
+                        { 
+                            type: "image",
+                            caption: "Fredericton's City Hall is the hub for the municipal government.",
+                            value: {sourceURL: "https://flic.kr/p/8Lsve8"}
+                        },
+                        {
+                            type: "image",
+                            caption: "Fredericton's Legislative Building is the hub for the New Brunswick provincial government.",
+                            value: {sourceURL: "https://upload.wikimedia.org/wikipedia/commons/5/5c/New_Brunswick_Legislative_Building-_Fredericton-_New_Brunswick-20170718.jpg"}
+                        }]
+                    }
+                ]};
                 const frederictonGraphic = new Graphic({ // Create a point graphic
                     geometry: frederictonPoint,
                     symbol: frederictonMarkerSymbol,
-                    attributes: frederictonAttributes,
                     popupTemplate: frederictonPopUp
                 });
                 graphicsLayer.add(frederictonGraphic); // Add the graphic for this point to the graphic layer
@@ -424,17 +563,17 @@
                     color: "#000"
                 };
                 const yellowknifePopUp = { // Create a pop-up for the point graphic when it is clicked
-                    title: "{Name}",
-                    content: "{Description}"
-                }
-                const yellowknifeAttributes = { // Info for inside pop-up
-                    Name: "Yellowknife, Northwest Territories",
-                    Description: "Yellowknife is the capital city of the Northwest Territories."
-                }
+                    title: "Yellowknife, Northwest Territories",
+                    content: [
+                    {
+                        type: "text",
+                        text: "Yellowknife is the capital city of the Northwest Territories, which is one of three Canadian territories. According to Statistics Canada (2021), Yellowknife's population is 20,340 and Northwest Territories' population is 41,070."
+                    }
+                    // Unfortunately no creative commons photos of the government buildings were available to use
+                ]};
                 const yellowknifeGraphic = new Graphic({ // Create a point graphic
                     geometry: yellowknifePoint,
                     symbol: yellowknifeMarkerSymbol,
-                    attributes: yellowknifeAttributes,
                     popupTemplate: yellowknifePopUp
                 });
                 graphicsLayer.add(yellowknifeGraphic); // Add the graphic for this point to the graphic layer
@@ -451,17 +590,27 @@
                     color: "#000"
                 };
                 const whitehorsePopUp = { // Create a pop-up for the point graphic when it is clicked
-                    title: "{Name}",
-                    content: "{Description}"
-                }
-                const whitehorseAttributes = { // Info for inside pop-up
-                    Name: "Whitehorse, Yukon Territory",
-                    Description: "Whitehorse is the capital city of the Yukon."
-                }
+                    title: "Whitehorse, Yukon",
+                    content: [
+                    {
+                        type: "text",
+                        text: "Whitehorse is the capital city of the Yukon, which is one of three Canadian territories. According to Statistics Canada (2021), Whitehorse's population is 28,201 and Yukon's population is 40,232."
+                    },
+                    {
+                        type: "media",
+                        title: "Landmarks",
+                        mediaInfos: [
+                        {
+                            type: "image",
+                            caption: "Whitehorse's Legislative Building is the hub for the Yukon provincial government.",
+                            value: {sourceURL: "https://flic.kr/p/cBgwGW"}
+                        }]
+                        // Unfortunately no creative commons photos of the city hall were available to use
+                    }
+                ]};
                 const whitehorseGraphic = new Graphic({ // Create a point graphic
                     geometry: whitehorsePoint,
                     symbol: whitehorseMarkerSymbol,
-                    attributes: whitehorseAttributes,
                     popupTemplate: whitehorsePopUp
                 });
                 graphicsLayer.add(whitehorseGraphic); // Add the graphic for this point to the graphic layer
