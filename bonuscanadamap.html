@@ -63,6 +63,12 @@
                 padding-left: 10px;
                 padding-right: 10px;
             }
+            /* Center images, inspired by https://www.w3schools.com/howto/howto_css_image_center.asp */
+            .centerimage {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
         </style>
 
         <!-- References to the CSS file and JS library -->
@@ -783,10 +789,13 @@
     <body>
 
         <h1>Canada's Provinces and Territories</h1>
-        <h2>Explore the map to learn more about Canada's provinces and territories and their capital cities, populations, government buildings, and landmarks.</h2>
+        <h2>Explore the features on the map of Canada below to learn more about the country's provinces and territories and their capital cities, populations, government buildings, and landmarks.</h2>
 
         <!-- Div to hold map contents -->
         <div id="viewDiv"></div>
+
+        <!-- Canadian flag -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/640px-Flag_of_Canada_%28Pantone%29.svg.png" alt="Canadian Flag" class="centerimage">
 
         <h3>Key Terms</h3>
         <p>In your notebook or on a Google Doc, define these key terms in your own words. Remember to use examples from the map in your definition.</p>
