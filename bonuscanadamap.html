@@ -44,6 +44,7 @@
                 font-family: arial, helvetica, sans-serif;
                 padding-left: 10px;
                 padding-right: 10px;
+                font-weight: normal;
             }
         </style>
 
@@ -60,14 +61,7 @@
                 "esri/Graphic",
                 "esri/layers/GraphicsLayer",
                 "esri/layers/FeatureLayer",
-                "esri/widgets/Legend",
-                "esri/widgets/Expand"
-                ], function(esriConfig, Map, MapView, Graphic, GraphicsLayer, FeatureLayer, Legend, Expand) {
-
-
-                // Set the hostname to the on-premise portal
-                // source: https://developers.arcgis.com/javascript/latest/api-reference/esri-config.html#portalUrl
-            //    esriConfig.portalUrl = "https://luna.flemingcollege.ca/arcgis/"
+                ], function(esriConfig, Map, MapView, Graphic, GraphicsLayer, FeatureLayer) {
 
 
                 // API Key provided by Shawn Morgan
@@ -88,12 +82,17 @@
                     zoom: 3
                 });
 
-
-                // Adding a Legend widget
-                view.ui.add(new Expand({ content: new Legend({ view }), view }), "top-left");
-
-
                 /////////// CANADA ///////////
+                // Create popup to outline feature
+                // The better solution to this would be to make each province and territory a unique color and republish to the server, however I ran out of time.
+                const canadaPopUp = { // Create a pop-up for the point graphic when it is clicked
+                    title: "{PRENAME}",
+                    content: [
+                    {
+                        type: "text",
+                        text: "By clicking this province/territory, outline of the selected feature is shown. Click the dots and star on the map to learn more about that region."
+                    }
+                ]};
                 const labelClass = { // Create labels for each province and territory
                     symbol: {
                         type: "text",
@@ -102,7 +101,7 @@
                         borderLineColor: "green",
                         borderLineSize: 0.5,
                         font: {
-                            family: "Arial",
+                            family: "arial",
                             size: 10,
                             weight: "bold"
                         }
@@ -116,6 +115,7 @@
                     url: "https://utility.arcgis.com/usrsvcs/servers/f4942e7f088643e5a3a57ff97c0dd365/rest/services/geom99am/hpleskoCanada/MapServer/0",
                     outFields: ["PRENAME"],
                     labelingInfo: [labelClass],
+                    popupTemplate: canadaPopUp
                 });
                 map.add(Canada); // Add the feature layer to the map
 
