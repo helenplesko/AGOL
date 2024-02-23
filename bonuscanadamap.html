@@ -102,9 +102,37 @@
                 const canadaPopUp = { // Define popup for Canada feature layer
                     title: "{PRENAME}"
                 }
+
+
+
+                const labelClass = {
+                // autocasts as new LabelClass()
+                symbol: {
+                    type: "text", // autocasts as new TextSymbol()
+                    color: "green",
+                    backgroundColor: [213, 184, 255, 0.75],
+                    borderLineColor: "green",
+                    borderLineSize: 1,
+                    yoffset: 5,
+                    font: {
+                    // autocast as new Font()
+                    family: "Playfair Display",
+                    size: 12,
+                    weight: "bold"
+                    }
+                },
+                labelPlacement: "above-center",
+                labelExpressionInfo: {
+                    expression: "$feature.PRENAME"
+                }
+                };
+
+
+
                 const Canada = new FeatureLayer ({ // Adding Canada feature layer from AGOL, accessed directly from Luna Server
                     url: "https://utility.arcgis.com/usrsvcs/servers/f4942e7f088643e5a3a57ff97c0dd365/rest/services/geom99am/hpleskoCanada/MapServer/0",
                     outFields: ["PRENAME"],
+                    labelingInfo: [labelClass],
                     popupTemplate: canadaPopUp
                 });
                 map.add(Canada); // Add the feature layer to the map
