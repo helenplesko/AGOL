@@ -5,15 +5,16 @@
         <!-- Map of Canada to support young learners -->
 
         <!-- List of ArcGIS Maps SDK for JavaScript tutorials explored for this deliverable: -->
-            <!-- Load a basic WebMap: https://developers.arcgis.com/javascript/latest/sample-code/webmap-basic/ -->
             <!-- Using Esri Icon Fonts with map graphics: https://developers.arcgis.com/javascript/latest/sample-code/styling-icon-fonts/ -->
             <!-- Display a pop-up: https://developers.arcgis.com/javascript/latest/tutorials/display-a-pop-up/ -->
             <!-- Multiple popup elements: https://developers.arcgis.com/javascript/latest/sample-code/popup-multipleelements/ -->
+            <!-- Add labels to a FeatureLayer: https://developers.arcgis.com/javascript/latest/sample-code/labels-basic/ -->
             <!-- Add a point, line, and polygon: https://developers.arcgis.com/javascript/latest/tutorials/add-a-point-line-and-polygon/ -->
             <!-- Add a point feature layer: https://developers.arcgis.com/javascript/latest/tutorials/add-a-feature-layer/ -->
-            <!-- Multiple popup elements: https://developers.arcgis.com/javascript/latest/sample-code/popup-multipleelements/ -->
             
         <!-- Population info from Statistics Canada (2021): https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/details/page.cfm -->
+        <!-- Images from Wikimedia Commons: https://commons.wikimedia.org/wiki/Main_Page -->
+
 
         <meta charset="utf-8" />
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
@@ -99,41 +100,28 @@
 
 
                 /////////// CANADA ///////////
-                const canadaPopUp = { // Define popup for Canada feature layer
-                    title: "{PRENAME}"
-                }
-
-
-
-                const labelClass = {
-                // autocasts as new LabelClass()
-                symbol: {
-                    type: "text", // autocasts as new TextSymbol()
-                    color: "green",
-                    backgroundColor: [213, 184, 255, 0.75],
-                    borderLineColor: "green",
-                    borderLineSize: 1,
-                    yoffset: 5,
-                    font: {
-                    // autocast as new Font()
-                    family: "Playfair Display",
-                    size: 12,
-                    weight: "bold"
+                const labelClass = { // Create labels for each province and territory
+                    symbol: {
+                        type: "text",
+                        color: "black",
+                        backgroundColor: [255,255,255,0.75],
+                        borderLineColor: "green",
+                        borderLineSize: 0.5,
+                        font: {
+                            family: "Arial",
+                            size: 10,
+                            weight: "bold"
+                        }
+                    },
+                    labelPlacement: "center",
+                    labelExpressionInfo: {
+                        expression: "$feature.PRENAME"
                     }
-                },
-                labelPlacement: "above-center",
-                labelExpressionInfo: {
-                    expression: "$feature.PRENAME"
-                }
                 };
-
-
-
                 const Canada = new FeatureLayer ({ // Adding Canada feature layer from AGOL, accessed directly from Luna Server
                     url: "https://utility.arcgis.com/usrsvcs/servers/f4942e7f088643e5a3a57ff97c0dd365/rest/services/geom99am/hpleskoCanada/MapServer/0",
                     outFields: ["PRENAME"],
                     labelingInfo: [labelClass],
-                    popupTemplate: canadaPopUp
                 });
                 map.add(Canada); // Add the feature layer to the map
 
