@@ -83,14 +83,14 @@
                 });
 
                 /////////// CANADA ///////////
-                // Create popup to outline feature
+                // Create popup to outline province/territory when clicked
                 // The better solution to this would be to make each province and territory a unique color and republish to the server, however I ran out of time.
-                const canadaPopUp = { // Create a pop-up for the point graphic when it is clicked
+                const canadaPopUp = {
                     title: "{PRENAME}",
                     content: [
                     {
                         type: "text",
-                        text: "By clicking this province/territory, outline of the selected feature is shown. Click the dots and star on the map to learn more about that region."
+                        text: "By selecting this province or territory, you are able to see the shape of it. Click the dots and star on the map to learn more about that region."
                     }
                 ]};
                 const labelClass = { // Create labels for each province and territory
