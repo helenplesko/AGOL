@@ -38,14 +38,14 @@
         <script>
             require([
                 "esri/config", 
-                "esri/Map", 
+                "esri/WebMap", 
                 "esri/views/MapView",
                 "esri/Graphic",
                 "esri/layers/GraphicsLayer",
                 "esri/layers/FeatureLayer",
                 "esri/widgets/Legend",
                 "esri/widgets/Expand"
-                ], function(esriConfig, Map, MapView, Graphic, GraphicsLayer, FeatureLayer, Legend, Expand) {
+                ], function(esriConfig, WebMap, MapView, Graphic, GraphicsLayer, FeatureLayer, Legend, Expand) {
 
 
                 // Set the hostname to the on-premise portal
@@ -58,10 +58,15 @@
 
             
                 // Creating a new map with a terrain basemap
-                const map = new Map({
-                    basemap: "topo-vector"
-                });
+          //      const map = new Map({
+          //         basemap: "topo-vector"
+          //      });
 
+                const map = new WebMap({
+                    portalItem: {
+                        id: "43824cea466c47de95576ea472c44f66"
+                    }
+                })
 
                 // Create a MapView
                 const view = new MapView({
@@ -77,15 +82,15 @@
 
 
                 /////////// CANADA ///////////
-                const canadaPopUp = { // Define popup for Canada feature layer
-                    title: "{PRENAME}"
-                }
-                const Canada = new FeatureLayer ({ // Adding Canada feature layer from AGOL, accessed directly from Luna Server
-                    url: "https://luna.flemingcollege.ca/arcgis/rest/services/geom99am/hpleskoCanada/MapServer/0",
-                    outFields: ["PRENAME"],
-                    popupTemplate: canadaPopUp
-                });
-                map.add(Canada); // Add the feature layer to the map
+          //      const canadaPopUp = { // Define popup for Canada feature layer
+          //          title: "{PRENAME}"
+          //      }
+          //      const Canada = new FeatureLayer ({ // Adding Canada feature layer from AGOL, accessed directly from Luna Server
+          //          url: "https://luna.flemingcollege.ca/arcgis/rest/services/geom99am/hpleskoCanada/MapServer/0",
+          //          outFields: ["PRENAME"],
+          //          popupTemplate: canadaPopUp
+          //      });
+          //      map.add(Canada); // Add the feature layer to the map
 
 
                 // Add the graphics layer to store graphics
@@ -639,8 +644,8 @@
                         mediaInfos: [
                         {
                             type: "image",
-                            caption: "",
-                            value: {sourceURL: ""}
+                            caption: "Get a great view of the waterfront from the top of this lighthouse and enjoy a few delicious treats from the restaurant below.",
+                            value: {sourceURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Canada_IMG_9207_%2837938081276%29.jpg/640px-Canada_IMG_9207_%2837938081276%29.jpg"}
                         }]
                     }
                 ]};
@@ -727,8 +732,8 @@
                         mediaInfos: [
                         {
                             type: "image",
-                            caption: "",
-                            value: {sourceURL: ""}
+                            caption: "S.S. Klondike National Historic Site in Whitehorse is there to represent the importance of water transportation to the Yukon.",
+                            value: {sourceURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/SS_Klondike_paddlewheeler_-_National_Historic_Site_-_Whitehorse%2C_Yukon.jpg/640px-SS_Klondike_paddlewheeler_-_National_Historic_Site_-_Whitehorse%2C_Yukon.jpg"}
                         }]
                     }
                 ]};
