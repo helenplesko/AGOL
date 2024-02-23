@@ -20,95 +20,12 @@
         <title>Canada</title>
 
         <style>
-            /******** CSS FOR BODY/PAGE FORMATTING BEGIN ********/
-            /* Customization of body */
-            body {
-                font-family: arial, helvetica, sans-serif;
-                background-color: #fff;
-            }
-            /* Customization of body and html document */
-            body, html {        
-                margin: 0; 
-                padding: 0
-            }  
-            /* Customization of container to hold all the page's information */
-            .container {
-                display: flex; 
-                width: 100%; 
-                height: 100%; 
-                flex-direction: column; 
-                background-color: #fff; 
-                overflow: hidden;
-            }
-            /* Customization of first row, with header information */
-            .first-row {
-                background-color: #e5f5e0; 
-            }
-            /* Customization of second and third row, with info about outdoor education */
-            .second-row, .third-row {
-                background-color: #fff; 
-            }
-            /******** CSS FOR BODY/PAGE FORMATTING END ********/
-
-
-            /******** CSS FOR TEXT BEGIN ********/
-            /* Customization of the footer text */
-            .footer-text {
-                background-color: #e5f5e0; 
-            }
-            /* Customization of the first header text */
-            h1 {
-                color: #000;
-                text-align: center;
-                font-size: 35px;
-                font-family: arial, helvetica, sans-serif;
-                padding-left: 10px;
-                padding-right: 10px;
-            }
-            /* Customization of the second header text */
-            h2 {
-                color: #000;
-                text-align: center;
-                font-size: 21px;
-                font-family: arial, helvetica, sans-serif;
-                padding-left: 10px;
-                padding-right: 10px;
-            }
-            /* Customization of the third header text */
-            h2 {
-                color: #000;
-                text-align: left;
-                font-size: 18px;
-                font-family: arial, helvetica, sans-serif;
-                padding-left: 10px;
-                padding-right: 10px;
-            }
-            /* Customization of the paragraph text */
-            p {
-                color: #000;
-                text-align: left;
-                font-weight: normal;
-                font-size: 16px;
-                font-family: arial, helvetica, sans-serif;
-                padding-left: 10px;
-                padding-right: 10px;
-            }
-            /* Customization of the paragraph text in footer */
-            .footer-text p {
-                text-align: center;
-                font-size: 12px;
-                color: #000;
-            }
-            /******** CSS FOR TEXT END ********/
-            
-            #viewDiv {
+            html, body, #viewDiv {
                 padding: 0;
                 margin: 0;
                 height: 100%;
                 width: 100%;
             }
-
-
         </style>
 
         <!-- References to the CSS file and JS library -->
@@ -828,10 +745,8 @@
     
     <body>
 
-        <header class="first-row">
-            <h1>Canada's Provinces and Territories</h1>
-            <h2>Explore the map to learn more about Canada's provinces and territories and their capital cities, populations, government buildings, and landmarks.</h2>
-        </header>
+        <h1>Canada's Provinces and Territories</h1>
+        <h2>Explore the map to learn more about Canada's provinces and territories and their capital cities, populations, government buildings, and landmarks.</h2>
 
         <!-- Div to hold map contents -->
         <div id="viewDiv"></div>
@@ -851,11 +766,6 @@
             <li>Cardinal Direction</li>
             <li>Population</li>
         </ul>
-
-        <footer class="footer-text">
-            <p>Page Completed by Helen Plesko</p>
-            <p>GEOM99 Lab 3 | Fleming College, Lindsay ON</p>
-        </footer>
 
     </body>
 </html>
