@@ -38,30 +38,35 @@
         <script>
             require([
                 "esri/config", 
-                "esri/Map", 
+                "esri/WebMap", 
                 "esri/views/MapView",
                 "esri/Graphic",
                 "esri/layers/GraphicsLayer",
                 "esri/layers/FeatureLayer",
                 "esri/widgets/Legend",
                 "esri/widgets/Expand"
-                ], function(esriConfig, Map, MapView, Graphic, GraphicsLayer, FeatureLayer, Legend, Expand) {
+                ], function(esriConfig, WebMap, MapView, Graphic, GraphicsLayer, FeatureLayer, Legend, Expand) {
 
 
                 // Set the hostname to the on-premise portal
                 // source: https://developers.arcgis.com/javascript/latest/api-reference/esri-config.html#portalUrl
-                esriConfig.portalUrl = "https://luna.flemingcollege.ca/arcgis/"
+         //       esriConfig.portalUrl = "https://luna.flemingcollege.ca/arcgis/"
 
 
                 // API Key provided by Shawn Morgan
                 esriConfig.apiKey = "AAPK7ea8e38f6b4b4f969ab170c41c01634akao_m4e5gL3AyABug_bvD9dN7kbXw7BSISXg4Y558XYUVj59ej6DtByYM0Cms4Tz";
 
             
-                // Creating a new map with a terrain basemap
-                const map = new Map({
-                    basemap: "topo-vector"
-                });
+        //        // Creating a new map with a terrain basemap
+        //        const map = new Map({
+        //            basemap: "topo-vector"
+        //        });
 
+                const map = new WebMap({
+                    portalItem: {
+                        id: "43824cea466c47de95576ea472c44f66"
+                    }
+                })
 
                 // Create a MapView
                 const view = new MapView({
@@ -77,15 +82,15 @@
 
 
                 /////////// CANADA ///////////
-                const canadaPopUp = { // Define popup for Canada feature layer
-                    title: "{PRENAME}"
-                }
-                const Canada = new FeatureLayer ({ // Adding Canada feature layer from AGOL, accessed directly from Luna Server
-                    url: "https://luna.flemingcollege.ca/arcgis/rest/services/geom99am/hpleskoCanada/MapServer/0",
-                    outFields: ["PRENAME"],
-                    popupTemplate: canadaPopUp
-                });
-                map.add(Canada); // Add the feature layer to the map
+         //       const canadaPopUp = { // Define popup for Canada feature layer
+        //            title: "{PRENAME}"
+        //        }
+        //        const Canada = new FeatureLayer ({ // Adding Canada feature layer from AGOL, accessed directly from Luna Server
+         //           url: "https://luna.flemingcollege.ca/arcgis/rest/services/geom99am/hpleskoCanada/MapServer/0",
+         //           outFields: ["PRENAME"],
+        //            popupTemplate: canadaPopUp
+         //       });
+        //        map.add(Canada); // Add the feature layer to the map
 
 
                 // Add the graphics layer to store graphics
