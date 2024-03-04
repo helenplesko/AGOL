@@ -188,7 +188,7 @@
 
                 /////////// CAPITAL CITIES OF PROVINCES AND TERRITORIES OF CANADA ///////////
 
-                const capitalMarkerSymbol = { 
+                const capitalMarkerSymbol = {  // Customize the marker symbol for each capital city
                     type: "simple-marker",
                     color: "#000",
                     size: 5
@@ -740,6 +740,47 @@
                 });
                 graphicsLayer.add(whitehorseGraphic); // Add the graphic for this point to the graphic layer
 
+                // 13) ST JOHN'S, NEWFOUNDLAND AND LABRADOR
+                const stjohnsPoint = { // Create a point
+                    type: "point",
+                    longitude: -52.712830,
+                    latitude: 47.560539
+                }; 
+                const stjohnsPopUp = { // Create a pop-up for the point graphic when it is clicked
+                    title: "St John's, Newfoundland and Labrador",
+                    content: [
+                    {
+                        type: "text",
+                        text: "St. John's is the capital city of Newfoundland and Labrador, which is one of ten Canadian provinces. According to Statistics Canada (2021), St. John's population is 110,525 and Newfoundland and Labrador's population is 510,550."
+                    },
+                    {
+                        type: "media",
+                        title: "Government Buildings",
+                        mediaInfos: [
+                        {
+                            type: "image",
+                            caption: "St. John's Legislative Building is the hub for the Newfoundland and Labrador provincial government.",
+                            value: {sourceURL: "https://commons.wikimedia.org/wiki/File:ConfederationBuildingStJohnsNewfoundland.JPG"}
+                        }]
+                        // Unfortunately no creative commons photos of the city hall were available to use
+                    },
+                    {
+                        type: "media",
+                        title: "Landmarks",
+                        mediaInfos: [
+                        {
+                            type: "image",
+                            caption: "St. John's in Newfoundland and Labrador is known for its colourful and bright jellybean row houses.",
+                            value: {sourceURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Jellybean_Row_Houses_of_St._John%27s%2C_Newfoundland.jpg/640px-Jellybean_Row_Houses_of_St._John%27s%2C_Newfoundland.jpg"}
+                        }]
+                    }
+                ]};
+                const stjohnsGraphic = new Graphic({ // Create a point graphic
+                    geometry: stjohnsPoint,
+                    symbol: capitalMarkerSymbol,
+                    popupTemplate: stjohnsPopUp
+                });
+                graphicsLayer.add(stjohnsGraphic); // Add the graphic for this point to the graphic layer
 
             });
         </script>
